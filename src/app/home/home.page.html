@@ -1,14 +1,58 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>
-      Ionic Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content color="secondary">
 
-<ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
+  <ion-item class="top" color="secondary" lines="full">
+    <ion-label style="text-align: center">Inicio de Sesión</ion-label>
+  </ion-item>
+
+  <div class="avatar">
+    <img src="assets/img/chat.png">
   </div>
+
+  <form class="form" [formGroup]="myForm" (ngSubmit)="login()">
+
+    <ion-item class="inputs" color="secondary">
+      <ion-label position="floating">Usuario</ion-label>
+      <br>
+      <ion-input formControlName="user" color="medium"></ion-input>
+    </ion-item>
+
+    <ion-item class="inputs-2" color="secondary">
+      <ion-label position="floating">Contraseña</ion-label>
+      <br>
+      <ion-input formControlName="password" type="password" color="medium"></ion-input>
+    </ion-item>
+
+    
+    
+    
+    
+    
+
+
+    <ion-button fill="outline" shape="round" expand="full" type="submit" [disabled]="!myForm.valid"
+      [hidden]="!myForm.valid" color="success">
+      Ingresar
+      <!-- <ion-icon name="chatbubbles"></ion-icon> -->
+    </ion-button>
+<!-- 
+    <ion-progress-bar *ngIf="spinnerLoad" type="indeterminate" color="secondary"></ion-progress-bar>
+    <ion-progress-bar *ngIf="spinnerLoad" type="indeterminate" reversed="true"></ion-progress-bar>
+    <ion-progress-bar *ngIf="spinnerLoad" type="indeterminate" color="secondary"></ion-progress-bar> -->
+
+  </form>
+
+  <ion-fab vertical="bottom" horizontal="left" slot="fixed">
+    <ion-fab-button color="success">
+      <ion-icon name="contacts"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="end"> 
+      <ion-fab-button color="dark" (click)="loadSelectedUser('a')">Adm</ion-fab-button>
+      <ion-fab-button color="light" (click)="loadSelectedUser('i')">Inv</ion-fab-button>
+      <ion-fab-button color="danger" (click)="loadSelectedUser('u')">Usu</ion-fab-button>
+      <ion-fab-button color="light" (click)="loadSelectedUser('an')">Anon</ion-fab-button>
+      <ion-fab-button color="dark" (click)="loadSelectedUser('t')">Test</ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+
+  <!-- <img src="assets/img/chat-img.png" style="padding: 5px"> -->
 </ion-content>

@@ -1,0 +1,28 @@
+import { Component, OnInit } from '@angular/core';
+import { NavController } from '@ionic/angular';
+
+@Component({
+  selector: 'app-welcome',
+  templateUrl: './welcome.page.html',
+  styleUrls: ['./welcome.page.scss'],
+})
+export class WelcomePage implements OnInit {
+
+  constructor(public navCtrl: NavController) { }
+
+  ngOnInit() {
+  }
+
+  redirectAula(aula) {
+    this.navCtrl.navigateRoot(['aula', aula]);
+  }
+
+  redirectAulaB(aula) {
+    this.navCtrl.navigateRoot(['aula-b', aula]);
+  }
+
+  volver() {
+    this.navCtrl.navigateRoot('home');
+  }
+
+}
